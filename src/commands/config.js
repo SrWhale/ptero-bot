@@ -9,6 +9,7 @@ module.exports = class ConfigCommand extends Command {
         super(client, {
             name: 'config',
             aliases: ['init', 'configure', 'iniciar'],
+            description: 'Configure suas credenciais para utilizar o painel'
         })
 
         this.client = client;
