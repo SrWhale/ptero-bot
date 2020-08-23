@@ -33,10 +33,10 @@ module.exports = class Command {
     verifyPermissions(message) {
 
         if (this.conf.isDev && !['375356261211963392'].includes(message.author.id)) {
-            message.channel.send(this.client.embed.setDescription(`Por enquanto, este comando só está disponível para o desenvolvedor do BOT.`))
+            message.channel.send(new this.client.embed().setDescription(`Por enquanto, este comando só está disponível para o desenvolvedor do BOT.`))
             return true;
         } else if (this.conf.permissions.length && !message.member.permissions.has(this.conf.permissions)) {
-            message.channel.send(this.client.embed.setDescription(`Voce precisa da(s) permissião(oes) \`${this.permissions.join(', ')}\` para executar este comando.`))
+            message.channel.send(new this.client.embed().setDescription(`Voce precisa da(s) permissião(oes) \`${this.conf.permissions.join(', ')}\` para executar este comando.`))
             return true;
         }
     }
