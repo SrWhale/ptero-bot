@@ -25,7 +25,7 @@ module.exports = class Pterodactyl extends Client {
     }
 
     login() {
-        return super.login(process.env.TOKEN);
+        return super.login('NzI2NDQ5NTg3NDMwMDk2OTQ3.Xvdc5g.8xCKmeMAVu5tFQVe8fw4sCf1YtQ');
     }
 
     loadCommands(dir) {
@@ -88,14 +88,14 @@ module.exports = class Pterodactyl extends Client {
     connectDatabase() {
         const firebase = require('firebase');
         const firebaseConfig = {
-            apiKey: process.env.APIKEY,
-            authDomain: process.env.AUTHDOMAIN,
-            databaseURL: process.env.DATABASEURL,
-            projectId: process.env.PROJECTID,
-            storageBucket: process.env.STORAGEBUCKET,
-            messagingSenderId: process.env.MESSAGINGSENDERID,
-            appId: process.env.APPID,
-            measurementId: process.env.MEASUREMENTID
+            apiKey: 'AIzaSyAslJgucn6NhScurcxP0T67jCGzmp5tFw8',
+            authDomain: "rede-square-bot.firebaseapp.com",
+            databaseURL: "https://rede-square-bot.firebaseio.com",
+            projectId: "rede-square-bot",
+            storageBucket: "rede-square-bot.appspot.com",
+            messagingSenderId: "23861535070",
+            appId: "1:23861535070:web:dd89eb495f5428dd292fcf",
+            measurementId: "G-WSXLDYDTFD"
         };
 
         firebase.initializeApp(firebaseConfig);

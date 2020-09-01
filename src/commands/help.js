@@ -14,7 +14,7 @@ module.exports = class HelpCommand extends Command {
 
         this.send(new this.client.embed()
             .setAuthor("Pterodactyl Panel - Ajuda", this.client.user.displayAvatarURL())
-            .setDescription(`${this.client.commands.map(command => ` \`${prefix}${command.help.name}\` - ${command.help.description} `).join("\n")}`)
+            .setDescription(`${this.client.commands.filter(command => !command.conf.isDev).map(command => ` \`${prefix}${command.help.name}\` - ${command.help.description} `).join("\n")}`)
             .setFooter(`Pterodactyl Panel - Ajuda`, this.client.user.displayAvatarURL()));
 
     }

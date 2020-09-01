@@ -20,8 +20,8 @@ module.exports = class BotinfoCommand extends Command {
             .addField("Meu criador", `SrWhale#0001`, true)
             .addField("Me convite para seu servidor", `[Clique aqui](https://discord.com/oauth2/authorize?client_id=726449587430096947&permissions=354368&scope=bot).`, true)
             .addField("Acesse minha Source:", `[Clique aqui](https://github.com/SrWhale/Pterodactyl-Panel)`, true)
-            .addField("Estou em...", `${this.client.guilds.cache.size} servidores, com ${this.client.users.cache.size} usuários.`, true)
-            .addField("Estou online há: ", duration.replace('minsutos', 'minutos'))
+            .addField("Estou em...", `${this.client.guilds.cache.size} servidores, \ncom ${this.client.users.cache.size} usuários.`, true)
+            .addField("Estou online há: ", duration.replace('minsutos', 'minutos'), true)
             .setFooter(`Solicitado por ${this.message.author.tag}`, this.message.author.displayAvatarURL()))
     }
 }

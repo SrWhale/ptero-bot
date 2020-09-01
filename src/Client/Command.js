@@ -4,7 +4,7 @@ module.exports = class Command {
 
         this.help = {
             name: options.name || null,
-            description: options.description || "descriptions:default",
+            description: options.description || "Nenhuma",
             aliases: options.aliases || [],
             category: options.category || null,
             usage: options.usage || options.name
@@ -27,7 +27,7 @@ module.exports = class Command {
     }
 
     send(message) {
-        return this.message.channel.send(message);
+        return this.message.channel.send(message)
     }
 
     verifyPermissions(message) {

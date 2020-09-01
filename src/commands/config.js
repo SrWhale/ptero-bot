@@ -16,23 +16,39 @@ module.exports = class ConfigCommand extends Command {
     }
 
     async run() {
+        let index = 0;
+        let url;
+        let api;
+
         this.message.member.send(new this.client.embed()
-            .setDescription(`${this.message.member}, por favor, insira a API da sua conta.`)
-            .setImage('https://media.discordapp.net/attachments/705073047400480768/726460403252723783/unknown.png?width=1026&height=219')
+            .setDescription(`${this.message.member}, por favor, insira a URL de seu painel. Exemplo: \`https://painel.suahospedagem.com\` `)
             .setFooter("Insira 'cancelar' a qualquer momento para cancelar a operação."))
             .then(async msg => {
-                this.reply(`${this.message.member}, verifique seu privado.`)
+                this.reply(`${this.message.member}, verifique seu privado.`);
 
                 const collector = msg.channel.createMessageCollector(m => m.author.id === this.message.author.id);
 
                 collector.on('collect', async ({ content }) => {
-                    console.log(content)
-                    Client.login('https://painel.companyore.com.br/', content, (logged, msg) => {
+
+                    if (index === 0) {
+                        url = content;
+                        index++;
+                        this.message.member.send(new this.client.embed()
+                            .setDescription(`${this.message.member}, por favor, insira a API da sua conta.`)
+                            .setImage('https://media.discordapp.net/attachments/705073047400480768/726460403252723783/unknown.png?width=1026&height=219')
+                            .setFooter("Insira 'cancelar' a qualquer momento para cancelar a operação."))
+                        return;
+
+                    }
+
+                    api = content;
+
+                    Client.login(url, api, (logged, msg) => {
                         if (msg) console.log('Erro ao conectar: ' + msg)
 
-                        if (!logged) return this.reply(`Não foi possível logar utilizando estas credenciais. Por favor, insira a API correta.`);
+                        if (!logged) return this.message.member.send(`Não foi possível logar utilizando estas credenciais. Por favor, utilize o comando novamente e insira a URL ou API correta.`);
 
-                        this.client.database.ref(`Pterodactyl/usuários/${this.message.author.id}`).set({ url: 'https://painel.companyore.com.br/', api: content });
+                        this.client.database.ref(`Pterodactyl/usuários/${this.message.author.id}`).set({ url: url, api: content });
 
                         this.message.member.send(new this.client.embed()
                             .setDescription(`${this.message.member}, o painel foi configurado com sucesso.`))
