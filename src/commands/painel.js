@@ -28,7 +28,8 @@ module.exports = class PainelCommand extends Command {
             if (!logged) return this.reply(`Não foi possível logar utilizando estas credenciais. Por favor, verifique se a API está correta e configure novamente.`);
 
             Client.getAllServers().then(async servers => {
-                if (!servers.length) return this.reply(`${this.message.member}, você não possui nenhum servidor em sua conta.`);
+
+                if (!servers.length && !servers) return this.reply(`${this.message.member}, você não possui nenhum servidor em sua conta.`);
                 console.log(servers.length)
                 const emoji = ['❌', '1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟'];
                 let index = 0;
