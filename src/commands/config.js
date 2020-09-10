@@ -29,7 +29,12 @@ module.exports = class ConfigCommand extends Command {
                 const collector = msg.channel.createMessageCollector(m => m.author.id === this.message.author.id);
 
                 collector.on('collect', async ({ content }) => {
-
+                    if (content.toLowerCase() === "cancelar") {
+                        collector.stop();
+                        this.message.member.send(new this.client.embed()
+                            .setDescription(`Operação cancelada com sucesso.`));
+                        return;
+                    }
                     if (index === 0) {
                         url = content;
                         index++;
@@ -42,7 +47,7 @@ module.exports = class ConfigCommand extends Command {
                     }
 
                     api = content;
-
+                    collector.stop();
                     Client.login(url, api, (logged, msg) => {
                         if (msg) console.log('Erro ao conectar: ' + msg)
 

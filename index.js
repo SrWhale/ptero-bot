@@ -1,6 +1,8 @@
 const { PterodactylPanel } = require('./src/index.js');
 
-const client = new PterodactylPanel();
+const client = new PterodactylPanel({
+    fetchAllMembers: true
+});
 
 const dotenv = require('dotenv');
 dotenv.config();
