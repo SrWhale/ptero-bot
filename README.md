@@ -8,5 +8,4 @@
   </div>
 
 
-<p> Caso queira utilizar esta source, é necessário que você crie um arquivo .env contendo as informações de login do seu banco de dados <strong>firebase</strong> e o <strong> token </strong> do seu <strong> BOT</strong>.
 > **Atenção:** Esta source e sua estrutura de arquivos foi inspirada do [SwiftBOT](https://github.com/Lucas340/SwiftBOT)
