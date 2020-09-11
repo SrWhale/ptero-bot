@@ -1,7 +1,11 @@
 const { PterodactylPanel } = require('./src/index.js');
 
 const client = new PterodactylPanel({
-    fetchAllMembers: true
+    fetchAllMembers: true,
+    presence: {
+        Activity: 'convite.pterodactylbot.tk',
+        type: 'PLAYING'
+    }
 });
 
 const dotenv = require('dotenv');
