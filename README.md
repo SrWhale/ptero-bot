@@ -9,4 +9,4 @@
 
 
 > **Atenção:** Esta source e sua estrutura de arquivos foi inspirada do [SwiftBOT](https://github.com/Lucas340/SwiftBOT)<br>
-> **Atenção:** Os arquivos e conexão ao painel e o código inserido neles foram baseados no [NodeActyl](https://github.com/Burchard36/Nodeactyl/)
+> **Atenção:** Os arquivos e conexão ao painel e o código inserido neles foram baseados no [Nodeactyl](https://github.com/Burchard36/Nodeactyl/)
