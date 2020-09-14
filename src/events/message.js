@@ -23,7 +23,7 @@ module.exports = class MessageEvent {
 
         cmd.setMessage(message);
 
-        await cmd.run()
+        await cmd.run(prefix | 'p!')
 
     }
 }
