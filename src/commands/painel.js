@@ -1,4 +1,3 @@
-const { getServerStatus } = require('nodeactyl/client');
 const { Command } = require('../index');
 
 const { Client } = require('../index');
