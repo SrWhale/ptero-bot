@@ -7,7 +7,7 @@ const client = new PterodactylPanel({
 const dotenv = require('dotenv');
 dotenv.config();
 
-client.login().then(() => {
+client.login().then(async () => {
 
     client.loadCommands('./src/commands');
 
