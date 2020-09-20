@@ -1,4 +1,4 @@
-const { PterodactylPanel } = require('./src/index.js');
+const { PterodactylPanel } = require('./src/index');
 
 const client = new PterodactylPanel({
     fetchAllMembers: true
