@@ -8,9 +8,6 @@ const PteroEmbed = require('./PteroEmbed');
 
 const path = require('path');
 
-const node = require('nodeactyl');
-
-const ClientNode = node.Client;
 module.exports = class Pterodactyl extends Client {
     constructor() {
         super();

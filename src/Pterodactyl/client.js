@@ -37,25 +37,26 @@ module.exports = class Client extends functions {
                     'Accept': 'Application/vnd.pterodactyl.v1+json',
                 },
             }).then((result) => {
-                if (result.stats === 404) return resolve(false, 'API IS NOT VALID');
+                // console.log(result)
+                if (result.status === 404) return resolve({ status: false, error: 'API IS NOT VALID!' });
 
                 this.connected = true;
-                resolve({ status: true });
+                return resolve({ status: true });
 
             }).catch((err) => {
 
                 if (err.response.status === 403) {
-                    resolve({ status: false, error: err });
+                    resolve({ status: false, error: 'I CAN NOT CONNECT' });
                     console.log('API KEY IS NOT VALID');
                     return;
                 }
 
                 if (err.response.status === 522) {
-                    resolve({ status: false })
-                    return console.log('I CAN NOT CONNECT');
+                    resolve({ status: false, error: 'I CAN NOT CONNECT' });
+                    return;
                 }
 
-                // console.log(err)
+                console.log(err)
             })
         })
     }

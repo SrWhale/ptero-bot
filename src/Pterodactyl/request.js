@@ -7,7 +7,7 @@ module.exports = class Request {
             api
         };
 
-        const createRequest = async (response, data) => return this.request(response, data);
+        const createRequest = async (response, data) => this.request(response, data);
 
         this.functions = {
             GetAllServers(result) {
@@ -106,7 +106,7 @@ module.exports = class Request {
 
             }).catch(err => {
 
-                if (err.response.stats === 500) return resolve(messages.action[type.signal]);
+                if (err.response.status === 500) return resolve(messages.action[type.signal]);
 
                 resolve(false, err);
                 console.log(`Ocorreu um erro ao ${type.signal} um servidor: ${err}`);

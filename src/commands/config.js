@@ -1,8 +1,6 @@
 const { Command } = require('../index');
 
-const node = require('nodeactyl');
-
-const Client = node.Client;
+const { Client } = require('../index');
 
 module.exports = class ConfigCommand extends Command {
     constructor(client) {
@@ -48,10 +46,14 @@ module.exports = class ConfigCommand extends Command {
 
                     api = content;
                     collector.stop();
-                    Client.login(url, api, (logged, msg) => {
-                        if (msg) console.log('Erro ao conectar: ' + msg)
 
-                        if (!logged) return this.message.member.send(`Não foi possível logar utilizando estas credenciais. Por favor, utilize o comando novamente e insira a URL ou API correta.`);
+                    const ptero = new Client(url, api);
+
+                    ptero.login(url, api).then(status => {
+
+                        if (status.error) console.log('Erro ao conectar: ' + msg)
+
+                        if (!status.status) return this.message.member.send(`Não foi possível logar utilizando estas credenciais. Por favor, utilize o comando novamente e insira a URL ou API correta.`);
 
                         this.client.database.ref(`Pterodactyl/usuários/${this.message.author.id}`).set({ url: url, api: content });
 
