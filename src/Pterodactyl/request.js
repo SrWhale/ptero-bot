@@ -7,7 +7,7 @@ module.exports = class Request {
             api
         };
 
-        const createRequest = async (response, data) => this.request(response, data);
+        const createRequest = async (response, data) => return this.request(response, data);
 
         this.functions = {
             GetAllServers(result) {
